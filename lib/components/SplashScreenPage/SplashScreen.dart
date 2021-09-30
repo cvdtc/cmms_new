@@ -11,14 +11,15 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
-    Timer(Duration(seconds: 4), (){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
+    Timer(Duration(seconds: 15), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => BottomNavigation()));
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -50,12 +51,14 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 10,
             ),
             SizedBox(
-              height: 200,
-              child: TextLiquidFill(
-                text: "GRAND ELEPHANT",
-                waveColor: secondcolor,
-                boxBackgroundColor: thirdcolor,
-                textStyle: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              width: 250.0,
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 30.0,
+                ),
+                child: AnimatedTextKit(
+                  animatedTexts: [TypewriterAnimatedText('GRAND ELEPHANT')],
+                ),
               ),
             ),
           ],
